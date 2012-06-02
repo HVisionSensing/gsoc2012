@@ -13,6 +13,11 @@
 		5C0010D715795FA500ABB162 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C0010D515795FA500ABB162 /* InfoPlist.strings */; };
 		5C0010D915795FA500ABB162 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010D815795FA500ABB162 /* main.m */; };
 		5C0010DD15795FA500ABB162 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010DC15795FA500ABB162 /* AppDelegate.m */; };
+		5C0010ED157960C800ABB162 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010EA157960C800ABB162 /* CameraViewController.m */; };
+		5C0010EE157960C800ABB162 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010EC157960C800ABB162 /* ImagePickerViewController.m */; };
+		5C0010FD1579649F00ABB162 /* VideoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010FB1579649F00ABB162 /* VideoCameraViewController.m */; };
+		5C0010FE1579649F00ABB162 /* VideoCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0010FC1579649F00ABB162 /* VideoCameraViewController.xib */; };
+		5C001100157A3A8200ABB162 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0010FF157A3A8200ABB162 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		5C0010DA15795FA500ABB162 /* IntroCamera-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntroCamera-Prefix.pch"; sourceTree = "<group>"; };
 		5C0010DB15795FA500ABB162 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C0010DC15795FA500ABB162 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5C0010E9157960C800ABB162 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		5C0010EA157960C800ABB162 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		5C0010EB157960C800ABB162 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		5C0010EC157960C800ABB162 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		5C0010FA1579649F00ABB162 /* VideoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCameraViewController.h; sourceTree = "<group>"; };
+		5C0010FB1579649F00ABB162 /* VideoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCameraViewController.m; sourceTree = "<group>"; };
+		5C0010FC1579649F00ABB162 /* VideoCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCameraViewController.xib; sourceTree = "<group>"; };
+		5C0010FF157A3A8200ABB162 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C001100157A3A8200ABB162 /* AVFoundation.framework in Frameworks */,
 				5C0010CD15795FA500ABB162 /* UIKit.framework in Frameworks */,
 				5C0010CF15795FA500ABB162 /* Foundation.framework in Frameworks */,
 				5C0010D115795FA500ABB162 /* CoreGraphics.framework in Frameworks */,
@@ -45,6 +59,7 @@
 		5C0010BD15795FA400ABB162 = {
 			isa = PBXGroup;
 			children = (
+				5C0010FF157A3A8200ABB162 /* AVFoundation.framework */,
 				5C0010D215795FA500ABB162 /* IntroCamera */,
 				5C0010CB15795FA500ABB162 /* Frameworks */,
 				5C0010C915795FA500ABB162 /* Products */,
@@ -72,6 +87,7 @@
 		5C0010D215795FA500ABB162 /* IntroCamera */ = {
 			isa = PBXGroup;
 			children = (
+				5C0010E8157960BA00ABB162 /* CameraController */,
 				5C0010DB15795FA500ABB162 /* AppDelegate.h */,
 				5C0010DC15795FA500ABB162 /* AppDelegate.m */,
 				5C0010D315795FA500ABB162 /* Supporting Files */,
@@ -88,6 +104,20 @@
 				5C0010DA15795FA500ABB162 /* IntroCamera-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C0010E8157960BA00ABB162 /* CameraController */ = {
+			isa = PBXGroup;
+			children = (
+				5C0010E9157960C800ABB162 /* CameraViewController.h */,
+				5C0010EA157960C800ABB162 /* CameraViewController.m */,
+				5C0010EB157960C800ABB162 /* ImagePickerViewController.h */,
+				5C0010EC157960C800ABB162 /* ImagePickerViewController.m */,
+				5C0010FA1579649F00ABB162 /* VideoCameraViewController.h */,
+				5C0010FB1579649F00ABB162 /* VideoCameraViewController.m */,
+				5C0010FC1579649F00ABB162 /* VideoCameraViewController.xib */,
+			);
+			name = CameraController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C0010D715795FA500ABB162 /* InfoPlist.strings in Resources */,
+				5C0010FE1579649F00ABB162 /* VideoCameraViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +185,9 @@
 			files = (
 				5C0010D915795FA500ABB162 /* main.m in Sources */,
 				5C0010DD15795FA500ABB162 /* AppDelegate.m in Sources */,
+				5C0010ED157960C800ABB162 /* CameraViewController.m in Sources */,
+				5C0010EE157960C800ABB162 /* ImagePickerViewController.m in Sources */,
+				5C0010FD1579649F00ABB162 /* VideoCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
