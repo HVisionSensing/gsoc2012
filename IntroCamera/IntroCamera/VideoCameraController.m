@@ -6,11 +6,11 @@
 //  Copyright 2012 Eduard Feicho. All rights reserved.
 //
 
-#import "VideoCameraViewController.h"
+#import "VideoCameraController.h"
 #include <ImageIO/ImageIO.h>
 
 
-@interface VideoCameraViewController ()
+@interface VideoCameraController ()
 
 @property (nonatomic, retain) AVCaptureSession* captureSession;
 @property (nonatomic, retain) AVCaptureStillImageOutput* stillImageOutput;
@@ -20,14 +20,15 @@
 - (void)enableCameraControls:(BOOL)enabled;
 - (void)deviceOrientationDidChange:(NSNotification*)notification;
 - (void)startCaptureSession;
-- (void)switchCameras;
-- (void)done;
+
 
 @end
 
 
 
-@implementation VideoCameraViewController
+@implementation VideoCameraController
+
+@synthesize running;
 
 @synthesize captureSession;
 @synthesize stillImageOutput;
@@ -36,20 +37,6 @@
 
 @synthesize delegate;
 
-- (void)awakeFromNib
-{
-	// react to device orientation notifications
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(deviceOrientationDidChange:)
-												 name:UIDeviceOrientationDidChangeNotification
-											   object:nil];
-	
-	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-	currentDeviceOrientation = [[UIDevice currentDevice] orientation];
-	
-	// check if camera available
-	canTakePicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-}
 
 - (void)dealloc;
 {
@@ -59,19 +46,25 @@
 	[super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-	// Releases the view if it doesn't have a superview.
-	[super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
 
 - (id)init;
 {
-	self = [super initWithNibName:@"ImageCaptureViewController" bundle:nil];
+	self = [super init];
 	if (self) {
-		[self awakeFromNib];
+		// react to device orientation notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(deviceOrientationDidChange:)
+													 name:UIDeviceOrientationDidChangeNotification
+												   object:nil];
+		
+		[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+		currentDeviceOrientation = [[UIDevice currentDevice] orientation];
+		
+		// check if camera available
+		canTakePicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+		running = NO;
+		
+		NSLog(@"camera available: %@", (canTakePicture == YES ? @"YES" : @"NO") );
 	}
 	return self;
 }
@@ -80,8 +73,10 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidUnload
+- (void)stop
 {
+	running = NO;
+	
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 	
@@ -91,37 +86,27 @@
 	self.captureVideoPreviewLayer = nil;
 	self.videoCaptureConnection = nil;
 	captureSessionLoaded = NO;
-		
-	[super viewDidUnload];
+	
+	if (self.delegate) {
+		[self.delegate videoCameraViewControllerDone:self ];
+	}
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)start
 {
-	[super viewDidAppear:animated];
+	if (running == YES) {
+		return;
+	}
+	running = YES;
 	
 	if (canTakePicture) {
 		[self performSelectorOnMainThread:@selector(startCaptureSession) withObject:nil waitUntilDone:NO];
 	}
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];	
-	[self.captureSession stopRunning];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	// Return YES for supported orientations
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
-
 
 #pragma mark - Device Orientation
-
 
 
 - (void)deviceOrientationDidChange:(NSNotification*)notification
@@ -273,13 +258,6 @@
 	 }];
 }
 
-- (void)done
-{
-	[self.captureSession stopRunning];
-	if (self.delegate) {
-		[self.delegate videoCameraViewControllerDone:self ];
-	}
-}
 
 - (void)switchCameras
 {

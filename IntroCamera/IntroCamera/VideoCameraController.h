@@ -10,12 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@class VideoCameraViewController;
+@class VideoCameraController;
 
-@protocol VideoCameraViewControllerDelegate <NSObject>
+@protocol VideoCameraControllerDelegate <NSObject>
 
-- (void)videoCameraViewController:(VideoCameraViewController*)videoCameraViewController capturedImage:(UIImage *)image;
-- (void)videoCameraViewControllerDone:(VideoCameraViewController*)videoCameraViewController;
+- (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
+- (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
 - (BOOL)allowMultipleImages;
 - (UIView*)getPreviewView;
 
@@ -23,7 +23,7 @@
 
 
 
-@interface VideoCameraViewController : UIViewController <UINavigationControllerDelegate>
+@interface VideoCameraController : NSObject
 {
 	BOOL canTakePicture;
 	BOOL captureSessionLoaded;
@@ -33,9 +33,16 @@
 	AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 	AVCaptureConnection* videoCaptureConnection;
 	UIDeviceOrientation currentDeviceOrientation;
+	
+	BOOL running;
 }
 
-@property (nonatomic, assign) id<VideoCameraViewControllerDelegate> delegate;
+@property (nonatomic, assign) id<VideoCameraControllerDelegate> delegate;
+@property (nonatomic, readonly) BOOL running;
+
+- (void)start;
+- (void)stop;
+- (void)switchCameras;
 
 
 @end

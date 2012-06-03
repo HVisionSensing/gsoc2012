@@ -9,18 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-static NSString* notificationImagePickerFinished = @"LibraryImagePickerFinishedNotification";
-
-
-@interface ImagePickerViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface ImagePickerController : NSObject
 {
 	BOOL imagePickerShown;
-
 }
 @property (nonatomic, assign) BOOL imagePickerShown;
+@property (nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate> delegate;
 
-
-- (IBAction)showPhotoLibrary;
-- (IBAction)hidePhotoLibrary;
+- (void)showPhotoLibrary:(UIViewController*)parent;
+- (void)hidePhotoLibrary:(UIViewController*)vc;
 
 @end
