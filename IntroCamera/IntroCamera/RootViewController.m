@@ -21,7 +21,6 @@
 @synthesize imagePicker;
 @synthesize videoCamera;
 
-
 @synthesize cameraImageView;
 @synthesize photoLibraryImageView;
 @synthesize videoCameraImageView;
@@ -32,12 +31,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-		self.imagePicker = [[[ImagePickerController alloc] init] autorelease];
-		self.imagePicker.delegate = self;
+		// Custom initialization
+		self.imagePicker = nil;
 		
 		self.videoCamera = [[[VideoCameraController alloc] init] autorelease];
-		self.videoCamera.delegate = self;
+		self.videoCamera.delegate = self;	
     }
     return self;
 }
@@ -101,10 +99,22 @@
 
 #pragma mark - Protocol UIImagePickerControllerDelegate
 
+- (IBAction)showCameraImage:(id)sender;
+{
+	NSLog(@"show camera image");
+	
+	self.imagePicker = [[[ImagePickerController alloc] initAsCamera] autorelease];
+	self.imagePicker.delegate = self;
+	[self.imagePicker showPicker:self];
+}
+
 - (IBAction)showPhotoLibrary:(id)sender;
 {
 	NSLog(@"show photo library");
-	[self.imagePicker showPhotoLibrary:self];
+	
+	self.imagePicker = [[[ImagePickerController alloc] initAsPhotoLibrary] autorelease];
+	self.imagePicker.delegate = self;
+	[self.imagePicker showPicker:self];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -112,24 +122,19 @@
 	UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
 	NSLog(@"imagePickerController didFinish: image info [w,h] = [%f,%f]", image.size.width, image.size.height);
 	
-	[self.photoLibraryImageView setImage:image];
+	if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+		[self.photoLibraryImageView setImage:image];
+	} else {
+		[self.cameraImageView setImage:image];
+	}
 	
-	[self.imagePicker hidePhotoLibrary:picker];
+	[self.imagePicker hidePicker:picker];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-	[self.imagePicker hidePhotoLibrary:picker];
+	[self.imagePicker hidePicker:picker];
 }
-
-
-
-#pragma mark - Protocol UIImagePickerControllerDelegate
-- (IBAction)showCameraImage:(id)sender;
-{
-	NSLog(@"show camera image");
-}
-
 
 
 

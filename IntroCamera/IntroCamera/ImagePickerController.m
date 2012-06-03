@@ -10,30 +10,59 @@
 
 @implementation ImagePickerController
 
-@synthesize imagePickerShown;
 @synthesize delegate;
+@synthesize imagePickerShown;
+@synthesize sourceType;
+
 
 #pragma mark - Constructors
 
-- (void)showPhotoLibrary:(UIViewController*)parent
+- (id)init;
+{
+	self = [super init];
+	if (self) {
+		self.sourceType = UIImagePickerControllerSourceTypeCamera;
+	}
+	return self;
+}
+
+- (id)initAsCamera;
+{
+	self = [super init];
+	if (self) {
+		self.sourceType = UIImagePickerControllerSourceTypeCamera;
+	}
+	return self;
+}
+
+- (id)initAsPhotoLibrary;
+{
+	self = [super init];
+	if (self) {
+		self.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	return self;
+}
+
+- (void)showPicker:(UIViewController*)parent
 {
 	if (self.imagePickerShown) {
 		return;
 	}
 	UIImagePickerController* imagePickerController = [[UIImagePickerController alloc] init];
 	imagePickerController.delegate = self.delegate;
-	imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	imagePickerController.sourceType = self.sourceType;
 	[parent presentModalViewController:imagePickerController animated:YES];
 	self.imagePickerShown = YES;
 	[imagePickerController release];
 }
 
-- (void)hidePhotoLibrary:(UIViewController*)vc;
+- (void)hidePicker:(UIViewController*)viewController;
 {
 	if (!self.imagePickerShown) {
 		return;
 	}
-	[vc dismissModalViewControllerAnimated:YES];
+	[viewController dismissModalViewControllerAnimated:YES];
 	self.imagePickerShown = NO;
 }
 

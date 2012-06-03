@@ -12,11 +12,18 @@
 @interface ImagePickerController : NSObject
 {
 	BOOL imagePickerShown;
+	UIImagePickerControllerSourceType sourceType;
 }
-@property (nonatomic, assign) BOOL imagePickerShown;
-@property (nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate> delegate;
 
-- (void)showPhotoLibrary:(UIViewController*)parent;
-- (void)hidePhotoLibrary:(UIViewController*)vc;
+@property (nonatomic, assign) id<UINavigationControllerDelegate,UIImagePickerControllerDelegate> delegate;
+@property (nonatomic, assign) BOOL imagePickerShown;
+@property (nonatomic, assign) UIImagePickerControllerSourceType sourceType;
+
+
+- (id)initAsCamera;
+- (id)initAsPhotoLibrary;
+
+- (void)showPicker:(UIViewController*)parent;
+- (void)hidePicker:(UIViewController*)viewController;
 
 @end

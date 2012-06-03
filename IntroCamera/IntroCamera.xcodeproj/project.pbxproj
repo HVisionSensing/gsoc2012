@@ -13,7 +13,6 @@
 		5C0010D715795FA500ABB162 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C0010D515795FA500ABB162 /* InfoPlist.strings */; };
 		5C0010D915795FA500ABB162 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010D815795FA500ABB162 /* main.m */; };
 		5C0010DD15795FA500ABB162 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010DC15795FA500ABB162 /* AppDelegate.m */; };
-		5C0010ED157960C800ABB162 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010EA157960C800ABB162 /* CameraViewController.m */; };
 		5C0010EE157960C800ABB162 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010EC157960C800ABB162 /* ImagePickerController.m */; };
 		5C0010FD1579649F00ABB162 /* VideoCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0010FB1579649F00ABB162 /* VideoCameraController.m */; };
 		5C0010FE1579649F00ABB162 /* VideoCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0010FC1579649F00ABB162 /* VideoCameraController.xib */; };
@@ -34,8 +33,6 @@
 		5C0010DA15795FA500ABB162 /* IntroCamera-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IntroCamera-Prefix.pch"; sourceTree = "<group>"; };
 		5C0010DB15795FA500ABB162 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C0010DC15795FA500ABB162 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5C0010E9157960C800ABB162 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		5C0010EA157960C800ABB162 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		5C0010EB157960C800ABB162 /* ImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		5C0010EC157960C800ABB162 /* ImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
 		5C0010FA1579649F00ABB162 /* VideoCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCameraController.h; sourceTree = "<group>"; };
@@ -120,8 +117,6 @@
 		5C0010E8157960BA00ABB162 /* CameraController */ = {
 			isa = PBXGroup;
 			children = (
-				5C0010E9157960C800ABB162 /* CameraViewController.h */,
-				5C0010EA157960C800ABB162 /* CameraViewController.m */,
 				5C0010EB157960C800ABB162 /* ImagePickerController.h */,
 				5C0010EC157960C800ABB162 /* ImagePickerController.m */,
 				5C0010FA1579649F00ABB162 /* VideoCameraController.h */,
@@ -206,7 +201,6 @@
 			files = (
 				5C0010D915795FA500ABB162 /* main.m in Sources */,
 				5C0010DD15795FA500ABB162 /* AppDelegate.m in Sources */,
-				5C0010ED157960C800ABB162 /* CameraViewController.m in Sources */,
 				5C0010EE157960C800ABB162 /* ImagePickerController.m in Sources */,
 				5C0010FD1579649F00ABB162 /* VideoCameraController.m in Sources */,
 				5C001104157A44A000ABB162 /* RootViewController.m in Sources */,
