@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C0BDBE01521C96F00429B77 /* ParticleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBDF1521C96F00429B77 /* ParticleGenerator.m */; };
+		5C0BDBF31521C9CB00429B77 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBE41521C9CB00429B77 /* Enemy.m */; };
+		5C0BDBF41521C9CB00429B77 /* LaserTowersAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBE61521C9CB00429B77 /* LaserTowersAppDelegate.m */; };
+		5C0BDBF51521C9CB00429B77 /* LaserTowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBE81521C9CB00429B77 /* LaserTowersViewController.m */; };
+		5C0BDBF61521C9CB00429B77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBE91521C9CB00429B77 /* main.m */; };
+		5C0BDBF71521C9CB00429B77 /* ParticleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBEB1521C9CB00429B77 /* ParticleFactory.m */; };
+		5C0BDBF81521C9CB00429B77 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBED1521C9CB00429B77 /* Sprite.m */; };
+		5C0BDBF91521C9CB00429B77 /* SpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBEF1521C9CB00429B77 /* SpriteFactory.m */; };
+		5C0BDBFA1521C9CB00429B77 /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BDBF11521C9CB00429B77 /* Tower.m */; };
+		5C2EBE0C151CB24F001B3AC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0B151CB24F001B3AC1 /* UIKit.framework */; };
+		5C2EBE0E151CB24F001B3AC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0D151CB24F001B3AC1 /* Foundation.framework */; };
+		5C2EBE10151CB24F001B3AC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0F151CB24F001B3AC1 /* CoreGraphics.framework */; };
+		5C2EBE12151CB24F001B3AC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE11151CB24F001B3AC1 /* QuartzCore.framework */; };
+		5C2EBE14151CB24F001B3AC1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE13151CB24F001B3AC1 /* OpenGLES.framework */; };
+		5C2EBE1A151CB24F001B3AC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE18151CB24F001B3AC1 /* InfoPlist.strings */; };
+		5C2EBE23151CB24F001B3AC1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE21151CB24F001B3AC1 /* MainWindow.xib */; };
+		5C2EBE25151CB24F001B3AC1 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE24151CB24F001B3AC1 /* Shader.fsh */; };
+		5C2EBE27151CB24F001B3AC1 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE26151CB24F001B3AC1 /* Shader.vsh */; };
+		5C2EBE30151CB24F001B3AC1 /* LaserTowersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE2E151CB24F001B3AC1 /* LaserTowersViewController.xib */; };
+		5C2EBE38151CB24F001B3AC1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE37151CB24F001B3AC1 /* SenTestingKit.framework */; };
+		5C2EBE39151CB24F001B3AC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0B151CB24F001B3AC1 /* UIKit.framework */; };
+		5C2EBE3A151CB24F001B3AC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0D151CB24F001B3AC1 /* Foundation.framework */; };
+		5C2EBE3B151CB24F001B3AC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2EBE0F151CB24F001B3AC1 /* CoreGraphics.framework */; };
+		5C2EBE43151CB24F001B3AC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE41151CB24F001B3AC1 /* InfoPlist.strings */; };
+		5C2EBE45151CB24F001B3AC1 /* LaserTowersTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 5C2EBE44151CB24F001B3AC1 /* LaserTowersTests.h */; };
+		5C2EBE47151CB24F001B3AC1 /* LaserTowersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2EBE46151CB24F001B3AC1 /* LaserTowersTests.m */; };
+		5CFD168015612047004DCE8F /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD167F15612047004DCE8F /* player.png */; };
+		5CFD1683156129D0004DCE8F /* Vector3f.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD1682156129D0004DCE8F /* Vector3f.m */; };
+		5CFD1684156129D0004DCE8F /* Vector3f.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD1682156129D0004DCE8F /* Vector3f.m */; };
+		5CFD168A15612C95004DCE8F /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD168915612C95004DCE8F /* Texture2D.m */; };
+		5CFD168B15612C95004DCE8F /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD168915612C95004DCE8F /* Texture2D.m */; };
+		5CFD16921561359D004DCE8F /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD16911561359D004DCE8F /* EAGLView.m */; };
+		5CFD16931561359D004DCE8F /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD16911561359D004DCE8F /* EAGLView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C2EBE3C151CB24F001B3AC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C2EBDFE151CB24F001B3AC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C2EBE06151CB24F001B3AC1;
+			remoteInfo = LaserTowers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C0BDBDE1521C96F00429B77 /* ParticleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleGenerator.h; path = Classes/ParticleGenerator.h; sourceTree = "<group>"; };
+		5C0BDBDF1521C96F00429B77 /* ParticleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticleGenerator.m; path = Classes/ParticleGenerator.m; sourceTree = "<group>"; };
+		5C0BDBE31521C9CB00429B77 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = Classes/Enemy.h; sourceTree = "<group>"; };
+		5C0BDBE41521C9CB00429B77 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enemy.m; path = Classes/Enemy.m; sourceTree = "<group>"; };
+		5C0BDBE51521C9CB00429B77 /* LaserTowersAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserTowersAppDelegate.h; path = Classes/LaserTowersAppDelegate.h; sourceTree = "<group>"; };
+		5C0BDBE61521C9CB00429B77 /* LaserTowersAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaserTowersAppDelegate.m; path = Classes/LaserTowersAppDelegate.m; sourceTree = "<group>"; };
+		5C0BDBE71521C9CB00429B77 /* LaserTowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserTowersViewController.h; path = Classes/LaserTowersViewController.h; sourceTree = "<group>"; };
+		5C0BDBE81521C9CB00429B77 /* LaserTowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaserTowersViewController.m; path = Classes/LaserTowersViewController.m; sourceTree = "<group>"; };
+		5C0BDBE91521C9CB00429B77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
+		5C0BDBEA1521C9CB00429B77 /* ParticleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleFactory.h; path = Classes/ParticleFactory.h; sourceTree = "<group>"; };
+		5C0BDBEB1521C9CB00429B77 /* ParticleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticleFactory.m; path = Classes/ParticleFactory.m; sourceTree = "<group>"; };
+		5C0BDBEC1521C9CB00429B77 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = Classes/Sprite.h; sourceTree = "<group>"; };
+		5C0BDBED1521C9CB00429B77 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sprite.m; path = Classes/Sprite.m; sourceTree = "<group>"; };
+		5C0BDBEE1521C9CB00429B77 /* SpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteFactory.h; path = Classes/SpriteFactory.h; sourceTree = "<group>"; };
+		5C0BDBEF1521C9CB00429B77 /* SpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteFactory.m; path = Classes/SpriteFactory.m; sourceTree = "<group>"; };
+		5C0BDBF01521C9CB00429B77 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tower.h; path = Classes/Tower.h; sourceTree = "<group>"; };
+		5C0BDBF11521C9CB00429B77 /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tower.m; path = Classes/Tower.m; sourceTree = "<group>"; };
+		5C2EBE07151CB24F001B3AC1 /* LaserTowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaserTowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2EBE0B151CB24F001B3AC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5C2EBE0D151CB24F001B3AC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5C2EBE0F151CB24F001B3AC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5C2EBE11151CB24F001B3AC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5C2EBE13151CB24F001B3AC1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5C2EBE17151CB24F001B3AC1 /* LaserTowers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaserTowers-Info.plist"; sourceTree = "<group>"; };
+		5C2EBE19151CB24F001B3AC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C2EBE1D151CB24F001B3AC1 /* LaserTowers-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LaserTowers-Prefix.pch"; sourceTree = "<group>"; };
+		5C2EBE22151CB24F001B3AC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		5C2EBE24151CB24F001B3AC1 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		5C2EBE26151CB24F001B3AC1 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		5C2EBE2F151CB24F001B3AC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaserTowersViewController.xib; sourceTree = "<group>"; };
+		5C2EBE36151CB24F001B3AC1 /* LaserTowersTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaserTowersTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2EBE37151CB24F001B3AC1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5C2EBE40151CB24F001B3AC1 /* LaserTowersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaserTowersTests-Info.plist"; sourceTree = "<group>"; };
+		5C2EBE42151CB24F001B3AC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C2EBE44151CB24F001B3AC1 /* LaserTowersTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaserTowersTests.h; sourceTree = "<group>"; };
+		5C2EBE46151CB24F001B3AC1 /* LaserTowersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaserTowersTests.m; sourceTree = "<group>"; };
+		5CFD167F15612047004DCE8F /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = Images/player.png; sourceTree = SOURCE_ROOT; };
+		5CFD1681156129D0004DCE8F /* Vector3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3f.h; path = Classes/Vector3f.h; sourceTree = "<group>"; };
+		5CFD1682156129D0004DCE8F /* Vector3f.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Vector3f.m; path = Classes/Vector3f.m; sourceTree = "<group>"; };
+		5CFD168815612C95004DCE8F /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture2D.h; path = Classes/Texture2D.h; sourceTree = "<group>"; };
+		5CFD168915612C95004DCE8F /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Texture2D.m; path = Classes/Texture2D.m; sourceTree = "<group>"; };
+		5CFD16901561359D004DCE8F /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EAGLView.h; path = Classes/EAGLView.h; sourceTree = "<group>"; };
+		5CFD16911561359D004DCE8F /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EAGLView.m; path = Classes/EAGLView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C2EBE04151CB24F001B3AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2EBE0C151CB24F001B3AC1 /* UIKit.framework in Frameworks */,
+				5C2EBE0E151CB24F001B3AC1 /* Foundation.framework in Frameworks */,
+				5C2EBE10151CB24F001B3AC1 /* CoreGraphics.framework in Frameworks */,
+				5C2EBE12151CB24F001B3AC1 /* QuartzCore.framework in Frameworks */,
+				5C2EBE14151CB24F001B3AC1 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C2EBE32151CB24F001B3AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2EBE38151CB24F001B3AC1 /* SenTestingKit.framework in Frameworks */,
+				5C2EBE39151CB24F001B3AC1 /* UIKit.framework in Frameworks */,
+				5C2EBE3A151CB24F001B3AC1 /* Foundation.framework in Frameworks */,
+				5C2EBE3B151CB24F001B3AC1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C0BDBFD1521CA7300429B77 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE24151CB24F001B3AC1 /* Shader.fsh */,
+				5C2EBE26151CB24F001B3AC1 /* Shader.vsh */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		5C2EBDFC151CB24F001B3AC1 = {
+			isa = PBXGroup;
+			children = (
+				5CFD167D15612004004DCE8F /* Images */,
+				5C2EBE15151CB24F001B3AC1 /* LaserTowers */,
+				5C2EBE3E151CB24F001B3AC1 /* LaserTowersTests */,
+				5C2EBE0A151CB24F001B3AC1 /* Frameworks */,
+				5C2EBE08151CB24F001B3AC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5C2EBE08151CB24F001B3AC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE07151CB24F001B3AC1 /* LaserTowers.app */,
+				5C2EBE36151CB24F001B3AC1 /* LaserTowersTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C2EBE0A151CB24F001B3AC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE0B151CB24F001B3AC1 /* UIKit.framework */,
+				5C2EBE0D151CB24F001B3AC1 /* Foundation.framework */,
+				5C2EBE0F151CB24F001B3AC1 /* CoreGraphics.framework */,
+				5C2EBE11151CB24F001B3AC1 /* QuartzCore.framework */,
+				5C2EBE13151CB24F001B3AC1 /* OpenGLES.framework */,
+				5C2EBE37151CB24F001B3AC1 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C2EBE15151CB24F001B3AC1 /* LaserTowers */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD168615612A02004DCE8F /* OpenGL */,
+				5CFD1685156129DB004DCE8F /* Primitives */,
+				5CFD168715612A6B004DCE8F /* GamePrimitives */,
+				5C0BDBE31521C9CB00429B77 /* Enemy.h */,
+				5C0BDBE41521C9CB00429B77 /* Enemy.m */,
+				5C0BDBE51521C9CB00429B77 /* LaserTowersAppDelegate.h */,
+				5C0BDBE61521C9CB00429B77 /* LaserTowersAppDelegate.m */,
+				5C0BDBE71521C9CB00429B77 /* LaserTowersViewController.h */,
+				5C0BDBE81521C9CB00429B77 /* LaserTowersViewController.m */,
+				5C0BDBDE1521C96F00429B77 /* ParticleGenerator.h */,
+				5C0BDBDF1521C96F00429B77 /* ParticleGenerator.m */,
+				5C0BDBEA1521C9CB00429B77 /* ParticleFactory.h */,
+				5C0BDBEB1521C9CB00429B77 /* ParticleFactory.m */,
+				5C0BDBEE1521C9CB00429B77 /* SpriteFactory.h */,
+				5C0BDBEF1521C9CB00429B77 /* SpriteFactory.m */,
+				5C0BDBF01521C9CB00429B77 /* Tower.h */,
+				5C0BDBF11521C9CB00429B77 /* Tower.m */,
+				5C2EBE21151CB24F001B3AC1 /* MainWindow.xib */,
+				5C2EBE2E151CB24F001B3AC1 /* LaserTowersViewController.xib */,
+				5C0BDBFD1521CA7300429B77 /* Shaders */,
+				5C2EBE16151CB24F001B3AC1 /* Supporting Files */,
+			);
+			path = LaserTowers;
+			sourceTree = "<group>";
+		};
+		5C2EBE16151CB24F001B3AC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE17151CB24F001B3AC1 /* LaserTowers-Info.plist */,
+				5C2EBE18151CB24F001B3AC1 /* InfoPlist.strings */,
+				5C0BDBE91521C9CB00429B77 /* main.m */,
+				5C2EBE1D151CB24F001B3AC1 /* LaserTowers-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C2EBE3E151CB24F001B3AC1 /* LaserTowersTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE44151CB24F001B3AC1 /* LaserTowersTests.h */,
+				5C2EBE46151CB24F001B3AC1 /* LaserTowersTests.m */,
+				5C2EBE3F151CB24F001B3AC1 /* Supporting Files */,
+			);
+			path = LaserTowersTests;
+			sourceTree = "<group>";
+		};
+		5C2EBE3F151CB24F001B3AC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C2EBE40151CB24F001B3AC1 /* LaserTowersTests-Info.plist */,
+				5C2EBE41151CB24F001B3AC1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CFD167D15612004004DCE8F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD167F15612047004DCE8F /* player.png */,
+			);
+			name = Images;
+			path = LaserTowers;
+			sourceTree = "<group>";
+		};
+		5CFD1685156129DB004DCE8F /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD1681156129D0004DCE8F /* Vector3f.h */,
+				5CFD1682156129D0004DCE8F /* Vector3f.m */,
+			);
+			name = Primitives;
+			sourceTree = "<group>";
+		};
+		5CFD168615612A02004DCE8F /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD168815612C95004DCE8F /* Texture2D.h */,
+				5CFD168915612C95004DCE8F /* Texture2D.m */,
+				5CFD16901561359D004DCE8F /* EAGLView.h */,
+				5CFD16911561359D004DCE8F /* EAGLView.m */,
+			);
+			name = OpenGL;
+			sourceTree = "<group>";
+		};
+		5CFD168715612A6B004DCE8F /* GamePrimitives */ = {
+			isa = PBXGroup;
+			children = (
+				5C0BDBEC1521C9CB00429B77 /* Sprite.h */,
+				5C0BDBED1521C9CB00429B77 /* Sprite.m */,
+			);
+			name = GamePrimitives;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C2EBE06151CB24F001B3AC1 /* LaserTowers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C2EBE4A151CB24F001B3AC1 /* Build configuration list for PBXNativeTarget "LaserTowers" */;
+			buildPhases = (
+				5C2EBE03151CB24F001B3AC1 /* Sources */,
+				5C2EBE04151CB24F001B3AC1 /* Frameworks */,
+				5C2EBE05151CB24F001B3AC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaserTowers;
+			productName = LaserTowers;
+			productReference = 5C2EBE07151CB24F001B3AC1 /* LaserTowers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C2EBE35151CB24F001B3AC1 /* LaserTowersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C2EBE4D151CB24F001B3AC1 /* Build configuration list for PBXNativeTarget "LaserTowersTests" */;
+			buildPhases = (
+				5C2EBE31151CB24F001B3AC1 /* Sources */,
+				5C2EBE32151CB24F001B3AC1 /* Frameworks */,
+				5C2EBE33151CB24F001B3AC1 /* Resources */,
+				5C2EBE34151CB24F001B3AC1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C2EBE3D151CB24F001B3AC1 /* PBXTargetDependency */,
+			);
+			name = LaserTowersTests;
+			productName = LaserTowersTests;
+			productReference = 5C2EBE36151CB24F001B3AC1 /* LaserTowersTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C2EBDFE151CB24F001B3AC1 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 5C2EBE01151CB24F001B3AC1 /* Build configuration list for PBXProject "LaserTowers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5C2EBDFC151CB24F001B3AC1;
+			productRefGroup = 5C2EBE08151CB24F001B3AC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C2EBE06151CB24F001B3AC1 /* LaserTowers */,
+				5C2EBE35151CB24F001B3AC1 /* LaserTowersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C2EBE05151CB24F001B3AC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2EBE1A151CB24F001B3AC1 /* InfoPlist.strings in Resources */,
+				5C2EBE23151CB24F001B3AC1 /* MainWindow.xib in Resources */,
+				5C2EBE25151CB24F001B3AC1 /* Shader.fsh in Resources */,
+				5C2EBE27151CB24F001B3AC1 /* Shader.vsh in Resources */,
+				5C2EBE30151CB24F001B3AC1 /* LaserTowersViewController.xib in Resources */,
+				5CFD168015612047004DCE8F /* player.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C2EBE33151CB24F001B3AC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2EBE43151CB24F001B3AC1 /* InfoPlist.strings in Resources */,
+				5C2EBE45151CB24F001B3AC1 /* LaserTowersTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C2EBE34151CB24F001B3AC1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C2EBE03151CB24F001B3AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C0BDBE01521C96F00429B77 /* ParticleGenerator.m in Sources */,
+				5C0BDBF31521C9CB00429B77 /* Enemy.m in Sources */,
+				5C0BDBF41521C9CB00429B77 /* LaserTowersAppDelegate.m in Sources */,
+				5C0BDBF51521C9CB00429B77 /* LaserTowersViewController.m in Sources */,
+				5C0BDBF61521C9CB00429B77 /* main.m in Sources */,
+				5C0BDBF71521C9CB00429B77 /* ParticleFactory.m in Sources */,
+				5C0BDBF81521C9CB00429B77 /* Sprite.m in Sources */,
+				5C0BDBF91521C9CB00429B77 /* SpriteFactory.m in Sources */,
+				5C0BDBFA1521C9CB00429B77 /* Tower.m in Sources */,
+				5CFD1683156129D0004DCE8F /* Vector3f.m in Sources */,
+				5CFD168A15612C95004DCE8F /* Texture2D.m in Sources */,
+				5CFD16921561359D004DCE8F /* EAGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C2EBE31151CB24F001B3AC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2EBE47151CB24F001B3AC1 /* LaserTowersTests.m in Sources */,
+				5CFD1684156129D0004DCE8F /* Vector3f.m in Sources */,
+				5CFD168B15612C95004DCE8F /* Texture2D.m in Sources */,
+				5CFD16931561359D004DCE8F /* EAGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C2EBE3D151CB24F001B3AC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C2EBE06151CB24F001B3AC1 /* LaserTowers */;
+			targetProxy = 5C2EBE3C151CB24F001B3AC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C2EBE18151CB24F001B3AC1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2EBE19151CB24F001B3AC1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5C2EBE21151CB24F001B3AC1 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2EBE22151CB24F001B3AC1 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		5C2EBE2E151CB24F001B3AC1 /* LaserTowersViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2EBE2F151CB24F001B3AC1 /* en */,
+			);
+			name = LaserTowersViewController.xib;
+			sourceTree = "<group>";
+		};
+		5C2EBE41151CB24F001B3AC1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2EBE42151CB24F001B3AC1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C2EBE48151CB24F001B3AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5C2EBE49151CB24F001B3AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C2EBE4B151CB24F001B3AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserTowers/LaserTowers-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "LaserTowers/LaserTowers-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5C2EBE4C151CB24F001B3AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserTowers/LaserTowers-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "LaserTowers/LaserTowers-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5C2EBE4E151CB24F001B3AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LaserTowers.app/LaserTowers";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserTowers/LaserTowers-Prefix.pch";
+				INFOPLIST_FILE = "LaserTowersTests/LaserTowersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5C2EBE4F151CB24F001B3AC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LaserTowers.app/LaserTowers";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaserTowers/LaserTowers-Prefix.pch";
+				INFOPLIST_FILE = "LaserTowersTests/LaserTowersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C2EBE01151CB24F001B3AC1 /* Build configuration list for PBXProject "LaserTowers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2EBE48151CB24F001B3AC1 /* Debug */,
+				5C2EBE49151CB24F001B3AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C2EBE4A151CB24F001B3AC1 /* Build configuration list for PBXNativeTarget "LaserTowers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2EBE4B151CB24F001B3AC1 /* Debug */,
+				5C2EBE4C151CB24F001B3AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C2EBE4D151CB24F001B3AC1 /* Build configuration list for PBXNativeTarget "LaserTowersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2EBE4E151CB24F001B3AC1 /* Debug */,
+				5C2EBE4F151CB24F001B3AC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C2EBDFE151CB24F001B3AC1 /* Project object */;
+}
