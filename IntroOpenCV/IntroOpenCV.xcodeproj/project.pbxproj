@@ -216,35 +216,11 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_CFLAGS = (
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_contrib.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_legacy.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_ml.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_stitching.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_nonfree.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_objdetect.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_videostab.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_calib3d.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_photo.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_video.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_features2d.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_highgui.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_flann.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_imgproc.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_core.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/share/OpenCV/3rdparty/lib/libzlib.a,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					AVFoundation,
-				);
+				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -258,36 +234,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_contrib.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_legacy.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_ml.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_stitching.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_nonfree.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_objdetect.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_videostab.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_calib3d.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_photo.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_video.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_features2d.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_highgui.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_flann.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_imgproc.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/lib/libopencv_core.a,
-					/Users/edo/Projects/opencv/trunk/OpenCV_iPhoneOS/share/OpenCV/3rdparty/lib/libzlib.a,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					AVFoundation,
-				);
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -299,8 +250,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntroOpenCV/IntroOpenCV-Prefix.pch";
+				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = "IntroOpenCV/IntroOpenCV-Info.plist";
-				OTHER_CFLAGS = "";
+				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
+				OTHER_CFLAGS = (
+					"-lz",
+					"-lopencv_core",
+					"-lopencv_legacy",
+					"-lopencv_contrib",
+					"-lopencv_highgui",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -311,8 +271,18 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntroOpenCV/IntroOpenCV-Prefix.pch";
+				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = "IntroOpenCV/IntroOpenCV-Info.plist";
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-lz",
+					"-lopencv_core",
+					"-lopencv_legacy",
+					"-lopencv_contrib",
+					"-lopencv_highgui",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -337,6 +307,7 @@
 				5CC487B4157BA9FB003EE01C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
