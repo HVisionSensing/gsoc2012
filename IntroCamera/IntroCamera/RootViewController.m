@@ -9,7 +9,6 @@
 #import "RootViewController.h"
 
 #import "ImagePickerController.h"
-#import "CameraViewController.h"
 #import "VideoCameraController.h"
 
 
