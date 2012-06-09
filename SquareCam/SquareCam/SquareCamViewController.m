@@ -1,6 +1,6 @@
 /*
-     File: SqareCamViewController.m
- Abstract: Dmonstrates iOS 5 features of the AVCaptureStillImageOutput class
+     File: SquareCamViewController.m
+ Abstract: Demonstrates iOS 5 features of the AVCaptureStillImageOutput class
   Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -182,6 +182,9 @@ static CGContextRef CreateCGBitmapContextForSize(CGSize size)
 @end
 
 @implementation SquareCamViewController
+
+@synthesize cvFaceDetector;
+
 
 - (void)setupAVCapture
 {
@@ -459,6 +462,8 @@ bail:
 						imageOptions = [NSDictionary dictionaryWithObject:orientation forKey:CIDetectorImageOrientation];
 					}
 					
+					/*
+					
                     // when processing an existing frame we want any new frames to be automatically dropped
                     // queueing this block to execute on the videoDataOutputQueue serial queue ensures this
                     // see the header doc for setSampleBufferDelegate:queue: for more information
@@ -490,7 +495,38 @@ bail:
 						
 					});
 					
+					 */
+					
+					//TODO use OpenCV face detector
+					dispatch_sync(videoDataOutputQueue, ^(void) {
+						
+                        // get the array of CIFeature instances in the given image with a orientation passed in
+                        // the detection will be done based on the orientation but the coordinates in the returned features will
+                        // still be based on those of the image.
+						
+						UIImage* uiImage = [UIImage imageWithCIImage:ciImage];
+						UIImage* uiImageWithFaces = [self.cvFaceDetector detectFace:uiImage];
+						
+						CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, 
+																					imageDataSampleBuffer, 
+																					kCMAttachmentMode_ShouldPropagate);
+						[self writeCGImageToCameraRoll:uiImageWithFaces.CGImage withMetadata:(id)attachments];
+						
+                        CGImageRef cgImageResult = [self newSquareOverlayedImageForFeatures:nil 
+																				  inCGImage:uiImageWithFaces.CGImage 
+																			withOrientation:curDeviceOrientation 
+																				frontFacing:isUsingFrontFacingCamera];
+						if (attachments)
+							CFRelease(attachments);
+						if (cgImageResult)
+							CFRelease(cgImageResult);
+						
+					});
+					
+					 
 					[ciImage release];
+					 
+					 
 				}
 				else {
 					// trivial simple JPEG case
@@ -568,6 +604,73 @@ bail:
 		videoBox.origin.y = (size.height - frameSize.height) / 2;
     
 	return videoBox;
+}
+
+- (void)drawFaceLayer:(UIImage*)image orientation:(UIDeviceOrientation)orientation;
+{
+	NSArray *sublayers = [NSArray arrayWithArray:[previewLayer sublayers]];
+	NSInteger sublayersCount = [sublayers count], currentSublayer = 0;
+	
+	[CATransaction begin];
+	[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+	
+	// hide all the face layers
+	for ( CALayer *layer in sublayers ) {
+		if ( [[layer name] isEqualToString:@"FaceLayer"] )
+			[layer setHidden:YES];
+	}
+	
+	if ( !detectFaces ) {
+		[CATransaction commit];
+		return; // early bail.
+	}
+	
+	CGSize parentFrameSize = [previewView frame].size;
+	NSString *gravity = [previewLayer videoGravity];
+	BOOL isMirrored = [previewLayer isMirrored];
+	
+	
+	CALayer *featureLayer = nil;
+	
+	// re-use an existing layer if possible
+	while ( !featureLayer && (currentSublayer < sublayersCount) ) {
+		CALayer *currentLayer = [sublayers objectAtIndex:currentSublayer++];
+		if ( [[currentLayer name] isEqualToString:@"FaceLayer"] ) {
+			featureLayer = currentLayer;
+			[currentLayer setHidden:NO];
+		}
+	}
+	
+	// create a new one if necessary
+	if ( !featureLayer ) {
+		featureLayer = [CALayer new];
+		[featureLayer setContents:(id)[image CGImage]];
+		[featureLayer setName:@"FaceLayer"];
+		[previewLayer addSublayer:featureLayer];
+		[featureLayer release];
+	}
+	[featureLayer setFrame:previewLayer.frame];
+	
+	switch (orientation) {
+		case UIDeviceOrientationPortrait:
+			[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(0.))];
+			break;
+		case UIDeviceOrientationPortraitUpsideDown:
+			[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(180.))];
+			break;
+		case UIDeviceOrientationLandscapeLeft:
+			[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(90.))];
+			break;
+		case UIDeviceOrientationLandscapeRight:
+			[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(-90.))];
+			break;
+		case UIDeviceOrientationFaceUp:
+		case UIDeviceOrientationFaceDown:
+		default:
+			break; // leave the layer in its last known orientation
+	}
+	
+	[CATransaction commit];
 }
 
 // called asynchronously as the capture output is capturing sample buffers, this method asks the face detector (if on)
@@ -723,18 +826,23 @@ bail:
 			break;
 	}
 
+	
 	imageOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:exifOrientation] forKey:CIDetectorImageOrientation];
-	NSArray *features = [faceDetector featuresInImage:ciImage options:imageOptions];
+	//NSArray *features = [faceDetector featuresInImage:ciImage options:imageOptions];
+	UIImage *image = [UIImage imageWithCIImage:ciImage];
+	UIImage *imageWithFaces = [self.cvFaceDetector detectFace:image];
+	
 	[ciImage release];
 	
     // get the clean aperture
     // the clean aperture is a rectangle that defines the portion of the encoded pixel dimensions
     // that represents image data valid for display.
-	CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
-	CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
+//	CMFormatDescriptionRef fdesc = CMSampleBufferGetFormatDescription(sampleBuffer);
+//	CGRect clap = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
 	
 	dispatch_async(dispatch_get_main_queue(), ^(void) {
-		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
+		[self drawFaceLayer:imageWithFaces orientation:curDeviceOrientation];
+//		[self drawFaceBoxesForFeatures:features forVideoBox:clap orientation:curDeviceOrientation];
 	});
 }
 
@@ -742,6 +850,7 @@ bail:
 {
 	[self teardownAVCapture];
 	[faceDetector release];
+	[cvFaceDetector release];
 	[square release];
 	[super dealloc];
 }
@@ -786,6 +895,8 @@ bail:
 	square = [[UIImage imageNamed:@"squarePNG"] retain];
 	NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
 	faceDetector = [[CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions] retain];
+	self.cvFaceDetector = [[[FaceDetector alloc] init] autorelease];
+	[self.cvFaceDetector loadCascade];
 	[detectorOptions release];
 }
 
