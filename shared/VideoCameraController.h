@@ -16,20 +16,28 @@
 
 - (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
 - (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
+- (UIImage*)processImage:(UIImage*)image;
 - (BOOL)allowMultipleImages;
+- (BOOL)allowPreviewLayer;
 - (UIView*)getPreviewView;
 
 @end
 
 
 
-@interface VideoCameraController : NSObject
+@interface VideoCameraController : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate>
 {
+	BOOL isUsingFrontFacingCamera;
+	
 	BOOL canTakePicture;
 	BOOL captureSessionLoaded;
 
 	AVCaptureSession* captureSession;
 	AVCaptureStillImageOutput *stillImageOutput;
+	
+	dispatch_queue_t videoDataOutputQueue;
+	AVCaptureVideoDataOutput *videoDataOutput;
+	
 	AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 	AVCaptureConnection* videoCaptureConnection;
 	UIDeviceOrientation currentDeviceOrientation;
@@ -40,9 +48,12 @@
 @property (nonatomic, assign) id<VideoCameraControllerDelegate> delegate;
 @property (nonatomic, readonly) BOOL running;
 
+
 - (void)start;
 - (void)stop;
 - (void)switchCameras;
+
+
 
 
 @end

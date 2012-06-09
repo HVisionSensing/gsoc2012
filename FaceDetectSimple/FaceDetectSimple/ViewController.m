@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UIImage+Resize.h"
 
 @interface ViewController ()
 
@@ -70,16 +70,46 @@
 
 #pragma mark - Protocol VideoCameraControllerDelegate
 
+- (IBAction)showVideoCamera:(id)sender;
+{
+	NSLog(@"show video camera");
+	
+	UIButton* button = (UIButton*)sender;
+	
+	if (self.videoCamera.running) {
+		[self.videoCamera stop];
+		[button setTitle:@"Start Video" forState:UIControlStateNormal];
+	} else {
+		[self.videoCamera start];
+		[button setTitle:@"Stop Video" forState:UIControlStateNormal];
+	}
+}
+
 
 - (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
 {
-	NSLog(@"detect");
-	[self.imageView setImage:[cvFaceDetector detectFace:image]];
+	NSLog(@"videoCameraViewController capturedImage: image info [w,h] = [%f,%f]", image.size.width, image.size.height);
+	[self.imageView setImage:image];
 }
+
+- (UIImage*)processImage:(UIImage*)image;
+{
+	NSLog(@"Detecting faces...");
+	UIImage* result = [cvFaceDetector detectFaces:image];
+	NSLog(@"done.");
+	
+	return result;
+}
+
 
 - (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
 {
 	
+}
+
+- (BOOL)allowPreviewLayer;
+{
+	return NO;
 }
 
 - (BOOL)allowMultipleImages;
@@ -117,7 +147,17 @@
 	UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
 	NSLog(@"imagePickerController didFinish: image info [w,h] = [%f,%f]", image.size.width, image.size.height);
 	
-	[self.imageView setImage:[cvFaceDetector detectFace:image]];
+	CGSize desiredSize;
+	if (image.size.width > image.size.height) {
+		desiredSize = CGSizeMake(800, 600);
+	} else {
+		desiredSize = CGSizeMake(600, 800);
+	}
+	image = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:desiredSize];
+	
+	NSLog(@"Detecting faces...");
+	[self.imageView setImage:[cvFaceDetector detectFaces:image]];
+	NSLog(@"done.");
 	
 	[self.imagePicker hidePicker:picker];
 }
