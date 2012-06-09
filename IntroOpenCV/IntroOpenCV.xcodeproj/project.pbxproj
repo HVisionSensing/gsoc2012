@@ -253,13 +253,23 @@
 				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = "IntroOpenCV/IntroOpenCV-Info.plist";
 				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_CFLAGS = (
-					"-lz",
-					"-lopencv_core",
-					"-lopencv_legacy",
+				OTHER_LDFLAGS = (
 					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_ml",
+					"-lopencv_stitching",
+					"-lopencv_nonfree",
+					"-lopencv_objdetect",
+					"-lopencv_videostab",
+					"-lopencv_calib3d",
+					"-lopencv_photo",
+					"-lopencv_video",
+					"-lopencv_features2d",
 					"-lopencv_highgui",
+					"-lopencv_flann",
 					"-lopencv_imgproc",
+					"-lopencv_core",
+					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -274,14 +284,23 @@
 				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = "IntroOpenCV/IntroOpenCV-Info.plist";
 				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"-lz",
-					"-lopencv_core",
-					"-lopencv_legacy",
+				OTHER_LDFLAGS = (
 					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_ml",
+					"-lopencv_stitching",
+					"-lopencv_nonfree",
+					"-lopencv_objdetect",
+					"-lopencv_videostab",
+					"-lopencv_calib3d",
+					"-lopencv_photo",
+					"-lopencv_video",
+					"-lopencv_features2d",
 					"-lopencv_highgui",
+					"-lopencv_flann",
 					"-lopencv_imgproc",
+					"-lopencv_core",
+					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
