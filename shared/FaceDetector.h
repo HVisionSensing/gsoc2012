@@ -10,8 +10,8 @@
 #import <Foundation/Foundation.h>
 
 #ifdef __cplusplus
-#include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <OpenCV/opencv2/objdetect/objdetect.hpp>
+#include <OpenCV/opencv2/imgproc/imgproc.hpp>
 
 #include <list>
 using namespace std;
