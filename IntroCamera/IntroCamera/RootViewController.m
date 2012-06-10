@@ -56,8 +56,15 @@
 }
 
 
-
 #pragma mark - Protocol VideoCameraControllerDelegate
+
+
+- (IBAction)switchCamera:(id)sender;
+{
+	[self.videoCamera switchCameras];
+}
+
+
 
 - (IBAction)showVideoCamera:(id)sender;
 {
@@ -74,20 +81,36 @@
 	}
 }
 
+
+- (UIImage*)processImage:(UIImage*)image;
+{
+	return image;
+}
+
+
 - (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
 {
 	// custom per-frame actions, like visualization, augmented reality...
 }
+
 
 - (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
 {
 	
 }
 
+
 - (BOOL)allowMultipleImages;
 {
 	return YES;
 }
+
+
+- (BOOL)allowPreviewLayer;
+{
+	return YES;
+}
+
 
 - (UIView*)getPreviewView;
 {
@@ -95,8 +118,8 @@
 }
 
 
-
 #pragma mark - Protocol UIImagePickerControllerDelegate
+
 
 - (IBAction)showCameraImage:(id)sender;
 {
@@ -107,6 +130,7 @@
 	[self.imagePicker showPicker:self];
 }
 
+
 - (IBAction)showPhotoLibrary:(id)sender;
 {
 	NSLog(@"show photo library");
@@ -115,6 +139,7 @@
 	self.imagePicker.delegate = self;
 	[self.imagePicker showPicker:self];
 }
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -130,11 +155,11 @@
 	[self.imagePicker hidePicker:picker];
 }
 
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
 	[self.imagePicker hidePicker:picker];
 }
-
 
 
 @end

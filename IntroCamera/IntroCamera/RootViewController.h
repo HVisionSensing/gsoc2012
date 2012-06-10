@@ -18,6 +18,7 @@
 	
 	ImagePickerController* imagePicker;
 	VideoCameraController* videoCamera;
+	
 }
 
 @property (nonatomic, retain) ImagePickerController* imagePicker;
