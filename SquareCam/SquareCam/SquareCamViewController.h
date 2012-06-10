@@ -47,10 +47,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-
-#import "FaceDetector.h"
-
-
 @class CIDetector;
 
 @interface SquareCamViewController : UIViewController <UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
@@ -68,12 +64,7 @@
 	CIDetector *faceDetector;
 	CGFloat beginGestureScale;
 	CGFloat effectiveScale;
-	
-	
-	FaceDetector* cvFaceDetector;
 }
-@property (nonatomic, retain) FaceDetector* cvFaceDetector;
-
 
 - (IBAction)takePicture:(id)sender;
 - (IBAction)switchCameras:(id)sender;

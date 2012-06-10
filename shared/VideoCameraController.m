@@ -10,6 +10,8 @@
 #include <ImageIO/ImageIO.h>
 
 
+#pragma mark - Private Interface
+
 @interface VideoCameraController ()
 
 @property (nonatomic, retain) AVCaptureSession* captureSession;
@@ -21,34 +23,34 @@
 - (void)enableCameraControls:(BOOL)enabled;
 - (void)deviceOrientationDidChange:(NSNotification*)notification;
 - (void)startCaptureSession;
-
 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+
+- (void)setDesiredCameraPosition:(AVCaptureDevicePosition)desiredPosition;
+
 
 
 @end
 
 
+#pragma mark - Implementation
 
 @implementation VideoCameraController
 
-@synthesize running;
+#pragma mark - Properties
 
+@synthesize running;
+@synthesize defaultPosition;
 @synthesize captureSession;
 @synthesize stillImageOutput;
 @synthesize videoDataOutput;
 @synthesize captureVideoPreviewLayer;
 @synthesize videoCaptureConnection;
-
 @synthesize delegate;
 
 
-- (void)dealloc;
-{
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
-	
-	[super dealloc];
-}
+#pragma mark - Constructors
+
+
 
 
 - (id)init;
@@ -66,18 +68,39 @@
 		
 		// check if camera available
 		canTakePicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+		NSLog(@"camera available: %@", (canTakePicture == YES ? @"YES" : @"NO") );
+		
 		running = NO;
 		
-		isUsingFrontFacingCamera = NO;
-		
-		NSLog(@"camera available: %@", (canTakePicture == YES ? @"YES" : @"NO") );
+		self.defaultPosition = AVCaptureDevicePositionFront;
 	}
 	return self;
 }
 
+- (void)dealloc;
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+	
+	[super dealloc];
+}
 
 
 #pragma mark - Public interface
+
+
+- (void)start
+{
+	if (running == YES) {
+		return;
+	}
+	running = YES;
+	
+	if (canTakePicture) {
+		[self performSelectorOnMainThread:@selector(startCaptureSession) withObject:nil waitUntilDone:NO];
+	}
+}
+
 
 - (void)stop
 {
@@ -104,16 +127,19 @@
 }
 
 
-- (void)start
+
+// use front/back camera
+- (void)switchCameras;
 {
-	if (running == YES) {
-		return;
-	}
-	running = YES;
+	[self stop];
 	
-	if (canTakePicture) {
-		[self performSelectorOnMainThread:@selector(startCaptureSession) withObject:nil waitUntilDone:NO];
+	if (self.defaultPosition == AVCaptureDevicePositionFront) {
+		self.defaultPosition = AVCaptureDevicePositionBack;
+	} else {
+		self.defaultPosition  = AVCaptureDevicePositionFront;
 	}
+	
+	[self start];
 }
 
 
@@ -162,23 +188,8 @@
 		NSLog(@"device position %d", device.position);
 		NSLog(@"device connected? %@", device.connected ? @"YES" : @"NO");
 		
-		NSError *error = nil;
-		AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
-		if (!input) {
-			NSLog(@"error creating input %@", [error localizedDescription]);
-		}
+		[self setDesiredCameraPosition:self.defaultPosition];
 		
-		// support for autofocus
-		if ([device isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
-			NSError *error = nil;
-			if ([device lockForConfiguration:&error]) {
-				device.focusMode = AVCaptureFocusModeContinuousAutoFocus;
-				[device unlockForConfiguration];
-			} else {
-				// Respond to the failure as appropriate
-			}
-		}
-		[self.captureSession addInput:input];
 		
 		// setup still image output with jpeg codec
 		self.stillImageOutput = [[[AVCaptureStillImageOutput alloc] init] autorelease];
@@ -304,44 +315,72 @@
 }
 
 
-- (void)switchCameras
+
+
+- (void)setDesiredCameraPosition:(AVCaptureDevicePosition)desiredPosition;
 {
-	// TODO
+	for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
+		if ([device position] == desiredPosition) {
+			[self.captureSession beginConfiguration];
+			
+			NSError* error;
+			AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+			if (!input) {
+				NSLog(@"error creating input %@", [error localizedDescription]);
+			}
+			
+			// support for autofocus
+			if ([device isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
+				NSError *error = nil;
+				if ([device lockForConfiguration:&error]) {
+					device.focusMode = AVCaptureFocusModeContinuousAutoFocus;
+					[device unlockForConfiguration];
+				} else {
+					NSLog(@"unable to lock device for autofocos configuration %@", [error localizedDescription]);
+				}
+			}
+			[self.captureSession addInput:input];
+			
+			for (AVCaptureInput *oldInput in self.captureSession.inputs) {
+				[self.captureSession removeInput:oldInput];
+			}
+			[self.captureSession addInput:input];
+			[self.captureSession commitConfiguration];
+			break;
+		}
+	}
 }
 
 
 
 #pragma mark - Protocol AVCaptureVideoDataOutputSampleBufferDelegate
 
-// TODO: I want to abstract the video output so that a delegate function is called on for frame.
-// the delegate should then be able to process the frame (OpenCV) and display the result somehow
+
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-	/*
-	if (delegate) {
+	if (self.delegate) {
 		// Create a UIImage from the sample buffer data
 		UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
+		
+		// tell delegate that the image may be processed
+		// TODO,NOTE: I think here we are on a special thread and maybe it shouldn't be used to
+		// do intensive tasks. However, it makes sense to block this thread until the processing
+		// has finished, because then frames will be dropped in the meantime.
+		// However, I still think, maybe it should be forwarded to the main thread, however in a blocking manner.
+		// something like dispatch_sync ???
 		UIImage *image_processed = [self.delegate processImage:image];
+		
+		// forward processed image to the delegate's handler for UI related responses
+		// (must be done on the main thread)
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.delegate videoCameraViewController:self capturedImage:image_processed];
 		});
 	}
-	
-	*/
-	
-	
-	if (self.delegate) {
-		// Create a UIImage from the sample buffer data
-		UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
-		UIImage *image_processed = [self.delegate processImage:image];
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self.delegate videoCameraViewController:self capturedImage:image_processed];
-		});
-	}	 
 }
-	 
-	 
+
+
 // Create a UIImage from sample buffer data
+// TODO fix orientation
 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer 
 {
     // Get a CMSampleBuffer's Core Video image buffer for the media data
@@ -384,7 +423,7 @@
 
 
 
-
+// TODO not working
 - (UIImage*)imageFromSampleBuffer2:(CMSampleBufferRef) sampleBuffer;
 {
 	// got an image
@@ -421,13 +460,13 @@
 			exifOrientation = PHOTOS_EXIF_0ROW_LEFT_0COL_BOTTOM;
 			break;
 		case UIDeviceOrientationLandscapeLeft:       // Device oriented horizontally, home button on the right
-			if (isUsingFrontFacingCamera)
+			if (self.defaultPosition == AVCaptureDevicePositionFront)
 				exifOrientation = PHOTOS_EXIF_0ROW_BOTTOM_0COL_RIGHT;
 			else
 				exifOrientation = PHOTOS_EXIF_0ROW_TOP_0COL_LEFT;
 			break;
 		case UIDeviceOrientationLandscapeRight:      // Device oriented horizontally, home button on the left
-			if (isUsingFrontFacingCamera)
+			if (self.defaultPosition == AVCaptureDevicePositionFront)
 				exifOrientation = PHOTOS_EXIF_0ROW_TOP_0COL_LEFT;
 			else
 				exifOrientation = PHOTOS_EXIF_0ROW_BOTTOM_0COL_RIGHT;

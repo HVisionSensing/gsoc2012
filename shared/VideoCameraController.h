@@ -14,12 +14,22 @@
 
 @protocol VideoCameraControllerDelegate <NSObject>
 
-- (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
-- (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
-- (UIImage*)processImage:(UIImage*)image;
-- (BOOL)allowMultipleImages;
+// whether or not to use a AVCaptureVideoPreviewLayer to show the camera video
 - (BOOL)allowPreviewLayer;
+
+// if allowPreviewLayer is set, provide a parent view for the camera's AVCaptureVideoPreviewLayer
 - (UIView*)getPreviewView;
+
+// delegate method for processing images before they are definitely send to the completion delegate method
+// note, 
+- (UIImage*)processImage:(UIImage*)image;
+
+// delegate completion method, used to deliver a (processed) image on the main thread
+- (void)videoCameraViewController:(VideoCameraController*)videoCameraViewController capturedImage:(UIImage *)image;
+
+// currently unused
+- (void)videoCameraViewControllerDone:(VideoCameraController*)videoCameraViewController;
+
 
 @end
 
@@ -27,7 +37,7 @@
 
 @interface VideoCameraController : NSObject<AVCaptureVideoDataOutputSampleBufferDelegate>
 {
-	BOOL isUsingFrontFacingCamera;
+	AVCaptureDevicePosition defaultPosition;
 	
 	BOOL canTakePicture;
 	BOOL captureSessionLoaded;
@@ -47,6 +57,9 @@
 
 @property (nonatomic, assign) id<VideoCameraControllerDelegate> delegate;
 @property (nonatomic, readonly) BOOL running;
+
+// set a default camera position (front/back) before calling -start
+@property (nonatomic, assign) AVCaptureDevicePosition defaultPosition;
 
 
 - (void)start;

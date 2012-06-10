@@ -191,8 +191,6 @@
 		5CE6B37215821F17009E66E4 = {
 			isa = PBXGroup;
 			children = (
-				5C046D3115840535006D444F /* CoreImage.framework */,
-				5C046D2F15840521006D444F /* CoreVideo.framework */,
 				5CE6B3B115822376009E66E4 /* shared */,
 				5CE6B38715821F17009E66E4 /* FaceDetectSimple */,
 				5CE6B38015821F17009E66E4 /* Frameworks */,
@@ -211,6 +209,8 @@
 		5CE6B38015821F17009E66E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C046D3115840535006D444F /* CoreImage.framework */,
+				5C046D2F15840521006D444F /* CoreVideo.framework */,
 				5CE6B3AC1582234E009E66E4 /* AVFoundation.framework */,
 				5CE6B38115821F17009E66E4 /* UIKit.framework */,
 				5CE6B38315821F17009E66E4 /* Foundation.framework */,

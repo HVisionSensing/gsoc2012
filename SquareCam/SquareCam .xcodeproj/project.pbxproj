@@ -20,20 +20,12 @@
 		1B867FF0139D4AD300AD6B47 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B867FEE139D4AD300AD6B47 /* MainStoryboard_iPhone.storyboard */; };
 		1B867FF3139D4AD300AD6B47 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B867FF1139D4AD300AD6B47 /* MainStoryboard_iPad.storyboard */; };
 		2BA4850713F1E6AA000BABB3 /* SquareCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4850413F1E6AA000BABB3 /* SquareCamAppDelegate.m */; };
+		2BA4850813F1E6AA000BABB3 /* SqareCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4850613F1E6AA000BABB3 /* SqareCamViewController.m */; };
 		2BA4851013F1E6CC000BABB3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4850C13F1E6CC000BABB3 /* MainStoryboard_iPad.storyboard */; };
 		2BA4851113F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */; };
 		2BA4851713F1E6DB000BABB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4851313F1E6DB000BABB3 /* main.m */; };
 		2BA4851813F1E6DB000BABB3 /* squarePNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851513F1E6DB000BABB3 /* squarePNG.png */; };
 		2BA4851A13F1EC39000BABB3 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851913F1EC39000BABB3 /* ReadMe.txt */; };
-		5C7B39821583C05E00D26165 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B397C1583C05E00D26165 /* haarcascade_eye_tree_eyeglasses.xml */; };
-		5C7B39831583C05E00D26165 /* haarcascade_eye.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B397D1583C05E00D26165 /* haarcascade_eye.xml */; };
-		5C7B39841583C05E00D26165 /* haarcascade_frontalface_alt_tree.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B397E1583C05E00D26165 /* haarcascade_frontalface_alt_tree.xml */; };
-		5C7B39851583C05E00D26165 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B397F1583C05E00D26165 /* haarcascade_frontalface_alt.xml */; };
-		5C7B39861583C05E00D26165 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B39801583C05E00D26165 /* haarcascade_frontalface_alt2.xml */; };
-		5C7B39871583C05E00D26165 /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5C7B39811583C05E00D26165 /* haarcascade_frontalface_default.xml */; };
-		5C7B398C1583C1F500D26165 /* FaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B39891583C1F500D26165 /* FaceDetector.mm */; };
-		5C7B398D1583C1F500D26165 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B398B1583C1F500D26165 /* UIImageCVMatConverter.mm */; };
-		5C7B39D21583CA4600D26165 /* SquareCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B39D11583CA4600D26165 /* SquareCamViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +43,7 @@
 		2BA4850313F1E6AA000BABB3 /* SquareCamAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareCamAppDelegate.h; path = SquareCam/SquareCamAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		2BA4850413F1E6AA000BABB3 /* SquareCamAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareCamAppDelegate.m; path = SquareCam/SquareCamAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		2BA4850513F1E6AA000BABB3 /* SquareCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareCamViewController.h; path = SquareCam/SquareCamViewController.h; sourceTree = SOURCE_ROOT; };
+		2BA4850613F1E6AA000BABB3 /* SqareCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SqareCamViewController.m; path = SquareCam/SqareCamViewController.m; sourceTree = SOURCE_ROOT; };
 		2BA4850D13F1E6CC000BABB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SquareCam/en.lproj/MainStoryboard_iPad.storyboard; sourceTree = SOURCE_ROOT; };
 		2BA4850F13F1E6CC000BABB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = SquareCam/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
 		2BA4851213F1E6DB000BABB3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SquareCam/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -58,17 +51,6 @@
 		2BA4851413F1E6DB000BABB3 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = SquareCam/Prefix.pch; sourceTree = SOURCE_ROOT; };
 		2BA4851513F1E6DB000BABB3 /* squarePNG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squarePNG.png; path = SquareCam/squarePNG.png; sourceTree = SOURCE_ROOT; };
 		2BA4851913F1EC39000BABB3 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		5C7B397C1583C05E00D26165 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
-		5C7B397D1583C05E00D26165 /* haarcascade_eye.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye.xml; sourceTree = "<group>"; };
-		5C7B397E1583C05E00D26165 /* haarcascade_frontalface_alt_tree.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt_tree.xml; sourceTree = "<group>"; };
-		5C7B397F1583C05E00D26165 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
-		5C7B39801583C05E00D26165 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
-		5C7B39811583C05E00D26165 /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_default.xml; sourceTree = "<group>"; };
-		5C7B39881583C1F500D26165 /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetector.h; path = ../shared/FaceDetector.h; sourceTree = "<group>"; };
-		5C7B39891583C1F500D26165 /* FaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FaceDetector.mm; path = ../shared/FaceDetector.mm; sourceTree = "<group>"; };
-		5C7B398A1583C1F500D26165 /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageCVMatConverter.h; path = ../shared/UIImageCVMatConverter.h; sourceTree = "<group>"; };
-		5C7B398B1583C1F500D26165 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UIImageCVMatConverter.mm; path = ../shared/UIImageCVMatConverter.mm; sourceTree = "<group>"; };
-		5C7B39D11583CA4600D26165 /* SquareCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareCamViewController.m; path = SquareCam/SquareCamViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA4851913F1EC39000BABB3 /* ReadMe.txt */,
-				5C7B39881583C1F500D26165 /* FaceDetector.h */,
-				5C7B39891583C1F500D26165 /* FaceDetector.mm */,
-				5C7B398A1583C1F500D26165 /* UIImageCVMatConverter.h */,
-				5C7B398B1583C1F500D26165 /* UIImageCVMatConverter.mm */,
 				1B867FE2139D4AD300AD6B47 /* SquareCam */,
-				5CE6B364158150B4009E66E4 /* data */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
 			);
@@ -138,7 +115,7 @@
 				2BA4850313F1E6AA000BABB3 /* SquareCamAppDelegate.h */,
 				2BA4850413F1E6AA000BABB3 /* SquareCamAppDelegate.m */,
 				2BA4850513F1E6AA000BABB3 /* SquareCamViewController.h */,
-				5C7B39D11583CA4600D26165 /* SquareCamViewController.m */,
+				2BA4850613F1E6AA000BABB3 /* SqareCamViewController.m */,
 				2BA4850C13F1E6CC000BABB3 /* MainStoryboard_iPad.storyboard */,
 				2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
@@ -156,27 +133,6 @@
 				2BA4851513F1E6DB000BABB3 /* squarePNG.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5CE6B364158150B4009E66E4 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				5CE6B365158150B4009E66E4 /* haarcascades */,
-			);
-			path = data;
-			sourceTree = "<group>";
-		};
-		5CE6B365158150B4009E66E4 /* haarcascades */ = {
-			isa = PBXGroup;
-			children = (
-				5C7B397C1583C05E00D26165 /* haarcascade_eye_tree_eyeglasses.xml */,
-				5C7B397D1583C05E00D26165 /* haarcascade_eye.xml */,
-				5C7B397E1583C05E00D26165 /* haarcascade_frontalface_alt_tree.xml */,
-				5C7B397F1583C05E00D26165 /* haarcascade_frontalface_alt.xml */,
-				5C7B39801583C05E00D26165 /* haarcascade_frontalface_alt2.xml */,
-				5C7B39811583C05E00D26165 /* haarcascade_frontalface_default.xml */,
-			);
-			path = haarcascades;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,12 +191,6 @@
 				2BA4851113F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard in Resources */,
 				2BA4851813F1E6DB000BABB3 /* squarePNG.png in Resources */,
 				2BA4851A13F1EC39000BABB3 /* ReadMe.txt in Resources */,
-				5C7B39821583C05E00D26165 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
-				5C7B39831583C05E00D26165 /* haarcascade_eye.xml in Resources */,
-				5C7B39841583C05E00D26165 /* haarcascade_frontalface_alt_tree.xml in Resources */,
-				5C7B39851583C05E00D26165 /* haarcascade_frontalface_alt.xml in Resources */,
-				5C7B39861583C05E00D26165 /* haarcascade_frontalface_alt2.xml in Resources */,
-				5C7B39871583C05E00D26165 /* haarcascade_frontalface_default.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,10 +202,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA4850713F1E6AA000BABB3 /* SquareCamAppDelegate.m in Sources */,
+				2BA4850813F1E6AA000BABB3 /* SqareCamViewController.m in Sources */,
 				2BA4851713F1E6DB000BABB3 /* main.m in Sources */,
-				5C7B398C1583C1F500D26165 /* FaceDetector.mm in Sources */,
-				5C7B398D1583C1F500D26165 /* UIImageCVMatConverter.mm in Sources */,
-				5C7B39D21583CA4600D26165 /* SquareCamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +248,7 @@
 		1B867FF8139D4AD300AD6B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -320,25 +268,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lopencv_core",
-					"-lopencv_legacy",
-					"-lopencv_contrib",
-					"-lopencv_highgui",
-					"-lopencv_imgproc",
-				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
-				WRAPPER_EXTENSION = app;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		1B867FF9139D4AD300AD6B47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -352,19 +291,10 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-lopencv_core",
-					"-lopencv_legacy",
-					"-lopencv_contrib",
-					"-lopencv_highgui",
-					"-lopencv_imgproc",
-				);
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -375,27 +305,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
-				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = SquareCam/Info.plist;
-				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_LDFLAGS = (
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_ml",
-					"-lopencv_stitching",
-					"-lopencv_nonfree",
-					"-lopencv_objdetect",
-					"-lopencv_videostab",
-					"-lopencv_calib3d",
-					"-lopencv_photo",
-					"-lopencv_video",
-					"-lopencv_features2d",
-					"-lopencv_highgui",
-					"-lopencv_flann",
-					"-lopencv_imgproc",
-					"-lopencv_core",
-					"-lz",
-				);
 				PRODUCT_NAME = SquareCam;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -409,27 +319,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
-				HEADER_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/include";
 				INFOPLIST_FILE = SquareCam/Info.plist;
-				LIBRARY_SEARCH_PATHS = "~/Projects/opencv/trunk/OpenCV_iPhoneOS/lib";
-				OTHER_LDFLAGS = (
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_ml",
-					"-lopencv_stitching",
-					"-lopencv_nonfree",
-					"-lopencv_objdetect",
-					"-lopencv_videostab",
-					"-lopencv_calib3d",
-					"-lopencv_photo",
-					"-lopencv_video",
-					"-lopencv_features2d",
-					"-lopencv_highgui",
-					"-lopencv_flann",
-					"-lopencv_imgproc",
-					"-lopencv_core",
-					"-lz",
-				);
 				PRODUCT_NAME = SquareCam;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

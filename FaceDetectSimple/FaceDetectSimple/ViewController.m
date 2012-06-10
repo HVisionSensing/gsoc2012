@@ -40,6 +40,7 @@
 	
 	self.videoCamera = [[VideoCameraController alloc] init];
 	self.videoCamera.delegate = self;
+	self.videoCamera.defaultPosition = AVCaptureDevicePositionFront;
 }
 
 - (void)viewDidUnload
